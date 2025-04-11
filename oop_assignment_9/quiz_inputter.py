@@ -19,8 +19,8 @@ while True:
         print("Exiting program...")
         break
 
-    with open("quiz_entries.txt", "w") as file:
-        for q in quizzes:
-            file.write(q)
+with open("quiz_entries.txt", "w") as file:
+    for q in quizzes:
+        file.write(q)
 
 print("Quiz saved to quiz_entries.txt")

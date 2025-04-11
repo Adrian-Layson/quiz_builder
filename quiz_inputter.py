@@ -23,4 +23,4 @@ while True:
         for q in quizzes:
             file.write(q)
 
-            
+print("Quiz saved to quiz_entries.txt")

@@ -1,0 +1,7 @@
+Q: What is the largest land mammal
+A. Elephant
+B. Chicken
+C. Giraffe
+D. Rhino
+Answer: A
+

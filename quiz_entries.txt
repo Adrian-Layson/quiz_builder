@@ -1,14 +1,7 @@
-Q: sino pinaka pogi
-1.ako
-2.sako
-3.ako
-4.parin
+Q: 1 + 1
+1.2
+2.5
+3.7
+4.3
 Answer: 1
-
-Q: sino pinaka pogi again
-1.ako parin
-2.syempre ako
-3.ako na ako
-4.ako
-Answer: 4
 

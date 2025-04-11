@@ -19,7 +19,7 @@ while True:
         print("Exiting program...")
         break
 
-with open("quiz_entries.txt", "w") as file:
+with open("quiz_entries.txt", "a") as file:
     for q in quizzes:
         file.write(q)
 

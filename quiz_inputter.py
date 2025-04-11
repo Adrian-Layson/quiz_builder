@@ -13,3 +13,8 @@ while True:
     quiz += f"Answer: {correct}\n\n"
 
     quizzes.append(quiz)
+
+    again = input("Wil you add another question? (y/n): ").lower()
+    if again != 'y':
+        break
+    

@@ -5,3 +5,10 @@ Q: sino pinaka pogi
 4.parin
 Answer: 1
 
+Q: sino pinaka pogi again
+1.ako parin
+2.syempre ako
+3.ako na ako
+4.ako
+Answer: 4
+

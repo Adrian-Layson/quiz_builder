@@ -1,4 +1,3 @@
-
 print("=== WELCOME TO QUIZ BUILDER ===\n")
 
 quizzes = []

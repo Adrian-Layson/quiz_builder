@@ -79,3 +79,16 @@ class QuizApp:
         self.progress["value"] = 100
         messagebox.showinfo("Quiz Complete", f"You got {self.score} out of {len(self.quizzes)} correct!")
         self.root.quit()
+
+filename = "quiz_entries.txt"
+quizzes = load_quizzes(filename)
+
+if quizzes:
+    root = tk.Tk()
+    style = ttk.Style()
+    style.theme_use('default')
+    style.configure("TProgressbar", thickness=10, troughcolor="#b2ebf2", background="#00acc1", bordercolor="#00acc1")
+    app = QuizApp(root, quizzes)
+    root.mainloop()
+else:
+    print("No quizzes found in the file.")

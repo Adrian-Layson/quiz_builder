@@ -34,3 +34,8 @@ class QuizApp:
         self.start_frame.pack(expand=True)
         tk.Label(self.start_frame, text="Welcome to the Quiz!", font=("Helvetica", 18, "bold"), bg="#e0f7fa", fg="#006064").pack(pady=20)
         tk.Button(self.start_frame, text="Start Quiz", font=("Helvetica", 14), bg="#4dd0e1", fg="white", command=self.start_quiz).pack()
+
+        self.quiz_frame = tk.Frame(root, bg="#e0f7fa")
+
+        self.question_label = tk.Label(self.quiz_frame, text="", font=("Helvetica", 14), bg="#e0f7fa", fg="#004d40", wraplength=450, justify="center")
+        self.question_label.pack(pady=20)

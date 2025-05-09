@@ -30,11 +30,13 @@ class QuizApp:
         self.score = 0
         self.selected = tk.StringVar()
 
+        # Start frame
         self.start_frame = tk.Frame(root, bg="#e0f7fa")
         self.start_frame.pack(expand=True)
         tk.Label(self.start_frame, text="Welcome to the Quiz!", font=("Helvetica", 18, "bold"), bg="#e0f7fa", fg="#006064").pack(pady=20)
         tk.Button(self.start_frame, text="Start Quiz", font=("Helvetica", 14), bg="#4dd0e1", fg="white", command=self.start_quiz).pack()
 
+        # Quiz frame
         self.quiz_frame = tk.Frame(root, bg="#e0f7fa")
 
         self.question_label = tk.Label(self.quiz_frame, text="", font=("Helvetica", 14), bg="#e0f7fa", fg="#004d40", wraplength=450, justify="center")
@@ -46,6 +48,14 @@ class QuizApp:
                                 font=("Helvetica", 12), bg="#e0f7fa", fg="#006064", anchor="w")
             rb.pack(anchor="center", pady=2)
             self.radio_buttons.append(rb)
+
+        # Progress bar
+        self.progress = ttk.Progressbar(self.quiz_frame, length=300, mode='determinate')
+        self.progress.pack(pady=15)
+
+        # Next button
+        self.next_button = tk.Button(self.quiz_frame, text="Next", font=("Helvetica", 12), bg="#26c6da", fg="white", command=self.next_question)
+        self.next_button.pack(pady=10)
 
     def start_quiz(self):
         self.start_frame.pack_forget()
@@ -80,9 +90,11 @@ class QuizApp:
         messagebox.showinfo("Quiz Complete", f"You got {self.score} out of {len(self.quizzes)} correct!")
         self.root.quit()
 
+# Load quizzes from the file
 filename = "quiz_entries.txt"
 quizzes = load_quizzes(filename)
 
+# If quizzes exist, start the app
 if quizzes:
     root = tk.Tk()
     style = ttk.Style()

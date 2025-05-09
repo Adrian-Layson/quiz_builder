@@ -22,7 +22,8 @@ class QuizApp:
     def __init__(self, root, quizzes):
         self.root = root
         self.root.title("Cool Quiz Player")
-        self.root.geometry("500x400")
+        
+        self.root.geometry("800x600")  
         self.root.configure(bg="#e0f7fa")
 
         self.quizzes = quizzes
@@ -30,16 +31,14 @@ class QuizApp:
         self.score = 0
         self.selected = tk.StringVar()
 
-        # Start frame
         self.start_frame = tk.Frame(root, bg="#e0f7fa")
         self.start_frame.pack(expand=True)
         tk.Label(self.start_frame, text="Welcome to the Quiz!", font=("Helvetica", 18, "bold"), bg="#e0f7fa", fg="#006064").pack(pady=20)
         tk.Button(self.start_frame, text="Start Quiz", font=("Helvetica", 14), bg="#4dd0e1", fg="white", command=self.start_quiz).pack()
 
-        # Quiz frame
         self.quiz_frame = tk.Frame(root, bg="#e0f7fa")
 
-        self.question_label = tk.Label(self.quiz_frame, text="", font=("Helvetica", 14), bg="#e0f7fa", fg="#004d40", wraplength=450, justify="center")
+        self.question_label = tk.Label(self.quiz_frame, text="", font=("Helvetica", 14), bg="#e0f7fa", fg="#004d40", wraplength=750, justify="center")
         self.question_label.pack(pady=20)
 
         self.radio_buttons = []
@@ -49,13 +48,11 @@ class QuizApp:
             rb.pack(anchor="center", pady=2)
             self.radio_buttons.append(rb)
 
-        # Progress bar
-        self.progress = ttk.Progressbar(self.quiz_frame, length=300, mode='determinate')
-        self.progress.pack(pady=15)
+        self.progress = ttk.Progressbar(self.quiz_frame, length=500, mode='determinate', maximum=100)
+        self.progress.pack(pady=20)
 
-        # Next button
-        self.next_button = tk.Button(self.quiz_frame, text="Next", font=("Helvetica", 12), bg="#26c6da", fg="white", command=self.next_question)
-        self.next_button.pack(pady=10)
+        self.next_button = tk.Button(self.quiz_frame, text="Next", font=("Helvetica", 14), bg="#26c6da", fg="white", command=self.next_question)
+        self.next_button.pack(pady=20)
 
     def start_quiz(self):
         self.start_frame.pack_forget()
@@ -83,7 +80,7 @@ class QuizApp:
             self.score += 1
 
         self.q_index += 1
-        self.load_question()    
+        self.load_question()
 
     def show_score(self):
         self.progress["value"] = 100

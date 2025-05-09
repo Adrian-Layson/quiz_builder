@@ -28,6 +28,7 @@ class QuizApp:
         self.score = 0
         self.selected = tk.StringVar()
         self.answered = False
+        self.at_least_one_correct = False
 
         pygame.mixer.init()
         pygame.mixer.music.load("background.mp3")
@@ -46,7 +47,7 @@ class QuizApp:
         self.radio_buttons = []
         for i in range(4):
             rb = tk.Radiobutton(self.quiz_frame, text="", variable=self.selected, value=chr(65 + i),
-                                font=("Helvetica", 14), bg="#e0f7fa", fg="#006064", anchor="w", command=self.enable_next)
+                                font=("Helvetica", 14), bg="#e0f7fa", fg="#006064", anchor="w", command=self.play_check_sfx)
             rb.pack(anchor="center", pady=5)
             self.radio_buttons.append(rb)
 
@@ -79,7 +80,8 @@ class QuizApp:
         else:
             self.show_score()
 
-    def enable_next(self):
+    def play_check_sfx(self):
+        pygame.mixer.Sound("check.mp3").play()
         self.next_button.config(state="normal")
 
     def check_answer(self):
@@ -90,6 +92,7 @@ class QuizApp:
                 self.feedback_label.config(text="Correct!", fg="green")
                 self.score += 1
                 pygame.mixer.Sound("correct.mp3").play()
+                self.at_least_one_correct = True
             else:
                 self.feedback_label.config(text=f"Wrong! Correct answer: {correct}", fg="red")
                 pygame.mixer.Sound("wrong.mp3").play()
@@ -103,6 +106,13 @@ class QuizApp:
 
     def show_score(self):
         self.progress["value"] = 100
+        if self.score == len(self.quizzes):
+            pygame.mixer.Sound("perfect.mp3").play()
+        elif self.score == 0:
+            pygame.mixer.Sound("zero.mp3").play()
+        elif self.at_least_one_correct:
+            pygame.mixer.Sound("pass.mp3").play()
+        pygame.mixer.music.stop()
         messagebox.showinfo("Quiz Complete", f"You got {self.score} out of {len(self.quizzes)} correct!")
         self.root.quit()
 

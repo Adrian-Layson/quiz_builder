@@ -46,3 +46,8 @@ class QuizApp:
                                 font=("Helvetica", 12), bg="#e0f7fa", fg="#006064", anchor="w")
             rb.pack(anchor="center", pady=2)
             self.radio_buttons.append(rb)
+
+    def start_quiz(self):
+        self.start_frame.pack_forget()
+        self.quiz_frame.pack(expand=True)
+        self.load_question()

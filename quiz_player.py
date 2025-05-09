@@ -74,3 +74,8 @@ class QuizApp:
 
         self.q_index += 1
         self.load_question()    
+
+    def show_score(self):
+        self.progress["value"] = 100
+        messagebox.showinfo("Quiz Complete", f"You got {self.score} out of {len(self.quizzes)} correct!")
+        self.root.quit()

@@ -51,3 +51,14 @@ class QuizApp:
         self.start_frame.pack_forget()
         self.quiz_frame.pack(expand=True)
         self.load_question()
+
+    def load_question(self):
+        if self.q_index < len(self.quizzes):
+            question, choices, _ = self.quizzes[self.q_index]
+            self.question_label.config(text=f"Q{self.q_index + 1}: {question}")
+            self.selected.set(None)
+            for i, choice in enumerate(choices):
+                self.radio_buttons[i].config(text=f"{chr(65 + i)}. {choice}", value=chr(65 + i))
+            self.progress["value"] = (self.q_index / len(self.quizzes)) * 100
+        else:
+            self.show_score()

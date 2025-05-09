@@ -29,3 +29,8 @@ class QuizApp:
         self.q_index = 0
         self.score = 0
         self.selected = tk.StringVar()
+
+        self.start_frame = tk.Frame(root, bg="#e0f7fa")
+        self.start_frame.pack(expand=True)
+        tk.Label(self.start_frame, text="Welcome to the Quiz!", font=("Helvetica", 18, "bold"), bg="#e0f7fa", fg="#006064").pack(pady=20)
+        tk.Button(self.start_frame, text="Start Quiz", font=("Helvetica", 14), bg="#4dd0e1", fg="white", command=self.start_quiz).pack()

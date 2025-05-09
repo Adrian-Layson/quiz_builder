@@ -39,3 +39,10 @@ class QuizApp:
 
         self.question_label = tk.Label(self.quiz_frame, text="", font=("Helvetica", 14), bg="#e0f7fa", fg="#004d40", wraplength=450, justify="center")
         self.question_label.pack(pady=20)
+
+        self.radio_buttons = []
+        for i in range(4):
+            rb = tk.Radiobutton(self.quiz_frame, text="", variable=self.selected, value=chr(65 + i),
+                                font=("Helvetica", 12), bg="#e0f7fa", fg="#006064", anchor="w")
+            rb.pack(anchor="center", pady=2)
+            self.radio_buttons.append(rb)

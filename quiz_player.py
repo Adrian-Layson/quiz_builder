@@ -62,3 +62,15 @@ class QuizApp:
             self.progress["value"] = (self.q_index / len(self.quizzes)) * 100
         else:
             self.show_score()
+
+    def next_question(self):
+        if not self.selected.get():
+            messagebox.showwarning("No selection", "Please choose an answer before continuing.")
+            return
+
+        _, _, correct = self.quizzes[self.q_index]
+        if self.selected.get() == correct:
+            self.score += 1
+
+        self.q_index += 1
+        self.load_question()    

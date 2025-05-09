@@ -23,4 +23,9 @@ class QuizApp:
         self.root = root
         self.root.title("Cool Quiz Player")
         self.root.geometry("500x400")
-        self.root.configure(bg="#e0f7fa")  
+        self.root.configure(bg="#e0f7fa")
+
+        self.quizzes = quizzes
+        self.q_index = 0
+        self.score = 0
+        self.selected = tk.StringVar()

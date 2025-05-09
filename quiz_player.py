@@ -89,8 +89,10 @@ class QuizApp:
             if chosen == correct:
                 self.feedback_label.config(text="Correct!", fg="green")
                 self.score += 1
+                pygame.mixer.Sound("correct.mp3").play()
             else:
                 self.feedback_label.config(text=f"Wrong! Correct answer: {correct}", fg="red")
+                pygame.mixer.Sound("wrong.mp3").play()
             for rb in self.radio_buttons:
                 rb.config(state="disabled")
             self.answered = True

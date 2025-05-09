@@ -90,11 +90,9 @@ class QuizApp:
         messagebox.showinfo("Quiz Complete", f"You got {self.score} out of {len(self.quizzes)} correct!")
         self.root.quit()
 
-# Load quizzes from the file
 filename = "quiz_entries.txt"
 quizzes = load_quizzes(filename)
 
-# If quizzes exist, start the app
 if quizzes:
     root = tk.Tk()
     style = ttk.Style()
